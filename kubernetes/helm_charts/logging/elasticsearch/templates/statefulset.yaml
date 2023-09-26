@@ -255,7 +255,6 @@ spec:
             value: "{{ .Values.esJavaOpts }}"
           - name: node.roles
             value: "{{ .Values.noderoles }}"
-          {{- end }}
 {{- if .Values.extraEnvs }}
 {{ toYaml .Values.extraEnvs | indent 10 }}
 {{- end }}
