@@ -253,7 +253,6 @@ spec:
             value: "{{ .Values.networkHost }}"
           - name: ES_JAVA_OPTS
             value: "{{ .Values.esJavaOpts }}"
-          {{- range $role, $enabled := .Values.roles }}
           - name: node.roles
             value: "{{ .Values.noderoles }}"
           {{- end }}
