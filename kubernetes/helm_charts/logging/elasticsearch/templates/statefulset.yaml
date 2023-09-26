@@ -254,8 +254,8 @@ spec:
           - name: ES_JAVA_OPTS
             value: "{{ .Values.esJavaOpts }}"
           {{- range $role, $enabled := .Values.roles }}
-          - name: node.{{ $role }}
-            value: "{{ $enabled }}"
+          - name: node.roles
+            value: "{{ .Values.noderoles }}"
           {{- end }}
 {{- if .Values.extraEnvs }}
 {{ toYaml .Values.extraEnvs | indent 10 }}
