@@ -272,8 +272,6 @@ grafana:
   adminPassword: "{{grafana_admin_user_password}}"
   deploymentStrategy:
     type: Recreate
-  plugins:
-    - https://grafana.com/api/plugins/camptocamp-prometheus-alertmanager-datasource/versions/2.0.0/download
   image:
     repository: grafana/grafana
     tag: 7.0.6
