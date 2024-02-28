@@ -359,8 +359,6 @@ dashboards:
        file: dashboards/host-details.json
      dashboard10:
        file: dashboards/load-metrics.json
-     dashboard11:
-       file: dashboards/lp-pipline-metrics.json
      dashboard12:
        file: dashboards/lp-pipeline-metricsLag.json
      dashboard13:
@@ -404,8 +402,6 @@ dashboards2:
        file: dashboards/api-manager-req-resp.json
      dashboardkong2:
        file: dashboards/api-manager-aggregated-beta.json
-     dashboardkong3:
-       file: dashboards/api-manager-old.json
      dashboardkong4:
        file: dashboards/api-manager-req-resp-aggregated-beta.json
      dashboardkong5:
