@@ -277,7 +277,7 @@ grafana:
     tag: 7.0.6
     pullPolicy: IfNotPresent
   env:
-    GF_SERVER_ROOT_URL: http://grafana.local.com/grafana
+    GF_SERVER_ROOT_URL: "{{ grafana_root_url }}"
     GF_SECURITY_ADMIN_USER: admin
     GF_SECURITY_ADMIN_PASSWORD: "{{grafana_admin_user_password}}"
     GF_AUTH_ANONYMOUS_ENABLED: "False"
