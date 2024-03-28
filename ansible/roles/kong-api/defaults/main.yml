@@ -10067,7 +10067,7 @@ kong_apis:
     config.enabled: false
 
 - name: EventPublishAPI
-  uris: "{{ event_prefix }}//v4/publish"
+  uris: "{{ event_prefix }}/v4/publish"
   upstream_url: "{{ vm_learning_service_url }}/event/v4/publish"
   strip_uri: true
   plugins:
