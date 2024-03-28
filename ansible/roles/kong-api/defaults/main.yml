@@ -10065,10 +10065,10 @@ kong_apis:
   - name: opa-checks
     config.required: false
     config.enabled: false
-
+    
 - name: EventPublishAPI
   uris: "{{ event_prefix }}/v4/publish"
-  upstream_url: "{{ vm_learning_service_url }}/event/v4/publish"
+  upstream_url: "{{ knowledge_mw_service_url }}/event/v4/publish"
   strip_uri: true
   plugins:
   - name: jwt
@@ -10085,4 +10085,4 @@ kong_apis:
     config.allowed_payload_size: "{{ small_request_size_limit }}"
   - name: opa-checks
     config.required: false
-    config.enabled: false    
+    config.enabled: false
