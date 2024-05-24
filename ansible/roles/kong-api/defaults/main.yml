@@ -123,6 +123,7 @@ uci_admin_prefix: /uci
 notification_service_prefix: /notification
 registry_service_prefix: /rc
 assessment_prefix: /assessment
+user_service_prefix: /user
 
 # Service URLs
 knowledge_mw_service_url: "http://knowledge-mw-service:5000"
@@ -154,6 +155,7 @@ uci_registry_service_url: "http://fusionauth-service:9011"
 uci_admin_service_url: "http://uci-service:9999"
 notification_service_url: "http://notification-service:9000"
 registry_service_url: "http://registry-service:8081"
+userorg_service_url: "http://userorg-service:9000"
 
 premium_consumer_rate_limits:
   - api: createContent
@@ -9833,3 +9835,24 @@ kong_apis:
   - name: opa-checks
     config.required: false
     config.enabled: false
+    
+- name: deleteUser
+  uris: "{{ user_service_prefix }}/v1/delete"
+  upstream_url: "{{ userorg_service_url }}/v1/user/delete"
+  strip_uri: true
+  plugins:
+  - name: jwt
+  - name: cors
+  - "{{ statsd_pulgin }}"
+  - name: acl
+    config.whitelist:
+    - userUpdate
+  - name: rate-limiting
+    config.policy: local
+    config.hour: "{{ medium_rate_limit_per_hour }}"
+    config.limit_by: credential
+  - name: request-size-limiting
+    config.allowed_payload_size: "{{ medium_request_size_limit }}"
+  - name: opa-checks
+    config.required: true
+    config.enabled: true
